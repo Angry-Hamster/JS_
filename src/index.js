@@ -2,18 +2,16 @@ import css from "./css/style.css";
 
 // ШАБЛОНИЗАЦИЯ И ВСТРАИВАНИЕ В DOM
 
-// испортирую массив с постами
+// импортирую массив с постами
 import posts from './posts.json';
-// console.log(posts)
 
-// испортирую шаблон
+// импортирую шаблон
 import templatePost from './post.hbs';
-// console.log(templatePost)
 
 // создаю элементы постов с помощью вызова шаблона
 // и передачи в него массива постов
 const postItem = templatePost(posts)
-// console.log(postItem)
+ 
 
 // получаю доступ в элементу html, куда буду
 // встраивать сгенерированные шаблонизатором посты
@@ -31,12 +29,8 @@ function changeTheme (theme) {
   body.classList.remove(alt+'-theme');
 }
 
-let theme = localStorage.getItem('changeTheme'); 
-const input = document.querySelector('.theme-switch__toggle')
-
-console.log(theme);
-if(theme == 'dark') {
-  input.checked = true;
+if(localStorage.getItem('changeTheme') == 'dark') {
+  const input = document.querySelector('.theme-switch__toggle').checked = true;
   changeTheme('dark')
 } else{
   changeTheme('light')
