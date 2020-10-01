@@ -29,8 +29,10 @@ function changeTheme (theme) {
   body.classList.remove(alt+'-theme');
 }
 
+const input = document.querySelector('.theme-switch__toggle')
+
 if(localStorage.getItem('changeTheme') == 'dark') {
-  const input = document.querySelector('.theme-switch__toggle').checked = true;
+  input.checked = true;
   changeTheme('dark')
 } else{
   changeTheme('light')
